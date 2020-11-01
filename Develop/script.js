@@ -14,6 +14,7 @@ function writePassword() {
   getPasswordLength();
   getLowercase();
   getUppercase();
+  getNumeric();
   console.log(passwordSelections);
   
 }
@@ -73,7 +74,7 @@ var getUppercase = function() {
   // confirm if the player would like their password to include lowercase letters
   var confirmUppercase = window.confirm("Would you like uppercase letters in your password?");
 
-  // if yes (true), set getLowercase to true
+  // if yes (true), set getUppercase to true
   if (confirmUppercase) {
     window.alert("your password will include uppercase letters.");
     passwordSelections.passwordUppercase = true;
@@ -86,13 +87,31 @@ var getUppercase = function() {
   }
 }
 
+// NUMERIC FUNCTION
+var getNumeric = function() {
+  // confirm if the player would like their password to include lowercase letters
+  var confirmNumeric = window.confirm("Would you like numbers in your password?");
+
+  // if yes (true), set getNumeric to true
+  if (confirmNumeric) {
+    window.alert("your password will include numbers.");
+    passwordSelections.passwordNumeric = true;
+    return true;
+  }
+  else {
+    window.alert("your password will not include numbers.");
+    passwordSelections.passwordNumeric = false;
+    return false;
+  }
+}
+
 // passwordSelections is an object which will hold all of the answers to the prompts
 // each element will call another function to generate this information
 var passwordSelections = {
   passwordLength: "",
   passwordLowercase: "", // getLowercase:
-  passwordUppercase: "" // getUppercase: 
-  // getNumeric:
+  passwordUppercase: "", // getUppercase: 
+  passwordNumeric: "" // getNumeric:
   // getSpecial:
 }
 
