@@ -12,11 +12,13 @@ function writePassword() {
   //passwordText.value = password;
   console.log("Function reached");
   getPasswordLength();
+  getLowercase();
   console.log(passwordSelections);
-
+  
 }
 
-// ---------------FUNCTIONS TO GET INFO FROM PROMPTS--------------------
+// ---------------------------------FUNCTIONS TO GET INFO FROM PROMPTS-------------------------------------
+
 // LENGTH FUNCTION
 var getPasswordLength = function() {
   var pwLength = "";
@@ -47,12 +49,30 @@ var getPasswordLength = function() {
   }
 }
 
+// LOWERCASE FUNCTION
+var getLowercase = function() {
+  // confirm if the player would like their password to include lowercase letters
+  var confirmLowercase = window.confirm("Would you like lowercase letters in your password?");
+
+  // if yes (true), set getLowercase to true
+  if (confirmLowercase) {
+    window.alert("your password will include lowercase letters.");
+    passwordSelections.passwordLowercase = true;
+    return true;
+  }
+  else {
+    window.alert("your password will not include lowercase letters.");
+    passwordSelections.passwordLowercase = false;
+    return false;
+  }
+}
+
 // passwordSelections is an object which will hold all of the answers to the prompts
 // each element will call another function to generate this information
 var passwordSelections = {
   passwordLength: "",
-  // getUpperCase: 
-  // getLowerCase:
+  passwordLowercase: "" // getLowercase:
+  // getUppercase: 
   // getNumeric:
   // getSpecial:
 }
