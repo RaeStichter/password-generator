@@ -15,6 +15,7 @@ function writePassword() {
   getLowercase();
   getUppercase();
   getNumeric();
+  getSpecial();
   console.log(passwordSelections);
   
 }
@@ -105,14 +106,32 @@ var getNumeric = function() {
   }
 }
 
+// SPECIAL CHARACTER FUNCTION
+var getSpecial = function() {
+  // confirm if the player would like their password to include lowercase letters
+  var confirmSpecial = window.confirm("Would you like special characters in your password?");
+
+  // if yes (true), set getNumeric to true
+  if (confirmSpecial) {
+    window.alert("your password will include special characters.");
+    passwordSelections.passwordSpecial = true;
+    return true;
+  }
+  else {
+    window.alert("your password will not include special characters.");
+    passwordSelections.passwordSpecial = false;
+    return false;
+  }
+}
+
 // passwordSelections is an object which will hold all of the answers to the prompts
 // each element will call another function to generate this information
 var passwordSelections = {
   passwordLength: "",
   passwordLowercase: "", // getLowercase:
   passwordUppercase: "", // getUppercase: 
-  passwordNumeric: "" // getNumeric:
-  // getSpecial:
+  passwordNumeric: "", // getNumeric:
+  passwordSpecial: "" // getSpecial:
 }
 
 
