@@ -14,6 +14,7 @@ function writePassword() {
   getPasswordLength();
   promptSelect();
   console.log(passwordSelections);
+  availableCharacters();
   generatePassword();
 
 }
@@ -136,12 +137,29 @@ var promptSelect = function() {
   }
 }
 
+// --------------------------------- AVAILABLE CHARACTERS ----------------------------------------------------
+var availableCharacters = function() {
+  if (passwordSelections.passwordLowercase === true) {
+    availChar = passwordText.lowercase;
+  }
+  if (passwordSelections.passwordUppercase === true) {
+    availChar = availChar + passwordText.uppercase;
+  }
+  if (passwordSelections.passwordNumeric === true) {
+    availChar = availChar + passwordText.number;
+  }
+  if (passwordSelections.passwordSpecial === true) {
+    availChar = availChar + passwordText.special;
+  }
+  console.log(availChar);
+  return availChar;
+
+}
+
 // --------------------------------- PASSWORD GENERATION ----------------------------------------------------
 var generatePassword = function () {
-  var pass = "";
-  var availChar = passwordText.lowercase;
-  console.log(passwordSelections.passwordLength);
-
+    // for loop which will take the availChar string and randomize a password based on the length of password desired
+    var pass = "";
   for (i = 0; i < passwordSelections.passwordLength; i++) {
     //debugger;
     var characters = Math.floor(Math.random() * availChar.length + 1);
@@ -150,13 +168,9 @@ var generatePassword = function () {
 
   }
   console.log(pass);
-  //return pass;
+  return pass;
+  
 }
-
-
-
-
-
 
 // ---------------------------------- OBJECTS AND VARIABLES -------------------------------------------------
 // passwordSelections is an object which will hold all of the answers to the prompts
