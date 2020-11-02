@@ -7,7 +7,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   //var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password");
 
   //passwordText.value = password;
   console.log("Function reached");
@@ -16,7 +16,7 @@ function writePassword() {
   console.log(passwordSelections);
   availableCharacters();
   generatePassword();
-
+  document.getElementById("password").innerHTML = password.value;
 }
 
 // --------------------------------- FUNCTIONS TO GET INFO FROM PROMPTS-------------------------------------
@@ -167,7 +167,10 @@ var generatePassword = function () {
     pass += availChar.charAt(characters);
 
   }
-  console.log(pass);
+  password.value = pass;
+  password.length = passwordSelections.passwordLength;
+  //console.log(pass);
+  window.alert("password value: " + password.value + ". Password length: " + password.length);
   return pass;
   
 }
@@ -194,6 +197,11 @@ var passwordText = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   number: "0123456789",
   special: "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+}
+
+var Password = {
+  value: "",
+  length: ''
 }
 
 // Add event listener to generate button
