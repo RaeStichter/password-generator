@@ -12,18 +12,15 @@ function writePassword() {
   //passwordText.value = password;
   console.log("Function reached");
   getPasswordLength();
-  //getLowercase();
-  //getUppercase();
-  //getNumeric();
-  //getSpecial();
   promptSelect();
   console.log(passwordSelections);
-  //validateCharType();
+  generatePassword();
+
 }
 
-// ---------------------------------FUNCTIONS TO GET INFO FROM PROMPTS-------------------------------------
+// --------------------------------- FUNCTIONS TO GET INFO FROM PROMPTS-------------------------------------
 
-// LENGTH FUNCTION
+// --------------------------------- LENGTH FUNCTION -------------------------------------------------------
 var getPasswordLength = function() {
   var pwLength = "";
 
@@ -53,7 +50,7 @@ var getPasswordLength = function() {
   }
 }
 
-// ---------------------------- SET CRITERIA FOR PASSWORD AND VALIDATE -------------------------------
+// --------------------------------- SET CRITERIA FOR PASSWORD AND VALIDATE ---------------------------------
 var promptSelect = function() {
   // this function will run through all of the prompt char types and validate entries at the end
   if (
@@ -139,6 +136,29 @@ var promptSelect = function() {
   }
 }
 
+// --------------------------------- PASSWORD GENERATION ----------------------------------------------------
+var generatePassword = function () {
+  var pass = "";
+  var availChar = passwordText.lowercase;
+  console.log(passwordSelections.passwordLength);
+
+  for (i = 0; i < passwordSelections.passwordLength; i++) {
+    //debugger;
+    var characters = Math.floor(Math.random() * availChar.length + 1);
+
+    pass += availChar.charAt(characters);
+
+  }
+  console.log(pass);
+  //return pass;
+}
+
+
+
+
+
+
+// ---------------------------------- OBJECTS AND VARIABLES -------------------------------------------------
 // passwordSelections is an object which will hold all of the answers to the prompts
 // each element will call another function to generate this information
 var passwordSelections = {
@@ -155,6 +175,12 @@ var passwordSelections = {
   }
 }
 
+var passwordText = {
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  number: "0123456789",
+  special: "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
