@@ -62,76 +62,62 @@ var promptSelect = function() {
     passwordSelections.passwordNumeric === "" ||
     passwordSelections.passwordSpecial === ""
   ) {
+      // LOWERCASE FUNCTION
+      // confirm if the player would like their password to include lowercase letters
+      var confirmLowercase = window.confirm("Would you like lowercase letters in your password?");
+      // if yes (true), set to true
+      if (confirmLowercase) {
+        window.alert("your password will include lowercase letters.");
+        passwordSelections.passwordLowercase = true;
+      }
+      // if cancel (false), set to false
+      else {
+        window.alert("your password will not include lowercase letters.");
+        passwordSelections.passwordLowercase = false;
+      }
 
+      // UPPERCASE FUNCTION
+      // confirm if the player would like their password to include uppercase letters
+      var confirmUppercase = window.confirm("Would you like uppercase letters in your password?");
+      // if yes (true), set to true
+      if (confirmUppercase) {
+        window.alert("your password will include uppercase letters.");
+        passwordSelections.passwordUppercase = true;
+      }
+      // if cancel (false), set to false
+      else {
+        window.alert("your password will not include uppercase letters.");
+        passwordSelections.passwordUppercase = false;
+      }
+
+      // NUMERIC FUNCTION
+      // confirm if the player would like their password to include numeric values
+      var confirmNumeric = window.confirm("Would you like numbers in your password?");
+      // if yes (true), set to true
+      if (confirmNumeric) {
+        window.alert("your password will include numbers.");
+        passwordSelections.passwordNumeric = true;
+      }
+      // if cancel (false), set to false
+      else {
+        window.alert("your password will not include numbers.");
+        passwordSelections.passwordNumeric = false;
+      }
+
+      // SPECIAL CHARACTER FUNCTION
+      // confirm if the player would like their password to include special characters
+      var confirmSpecial = window.confirm("Would you like special characters in your password?");
+      // if yes (true), set to true
+      if (confirmSpecial) {
+        window.alert("your password will include special characters.");
+        passwordSelections.passwordSpecial = true;
+      }
+      // if cancel (false), set to false
+      else {
+        window.alert("your password will not include special characters.");
+        passwordSelections.passwordSpecial = false;
+      }
   }
-  // once if statement is complete, validate results
-
-
-
-
-
-
-
-
-
-
-
-  // LOWERCASE FUNCTION
-  // confirm if the player would like their password to include lowercase letters
-  var confirmLowercase = window.confirm("Would you like lowercase letters in your password?");
-  // if yes (true), set to true
-  if (confirmLowercase) {
-    window.alert("your password will include lowercase letters.");
-    passwordSelections.passwordLowercase = true;
-  }
-  // if cancel (false), set to false
-  else {
-    window.alert("your password will not include lowercase letters.");
-    passwordSelections.passwordLowercase = false;
-  }
-
-  // UPPERCASE FUNCTION
-  // confirm if the player would like their password to include uppercase letters
-  var confirmUppercase = window.confirm("Would you like uppercase letters in your password?");
-  // if yes (true), set to true
-  if (confirmUppercase) {
-    window.alert("your password will include uppercase letters.");
-    passwordSelections.passwordUppercase = true;
-  }
-  // if cancel (false), set to false
-  else {
-    window.alert("your password will not include uppercase letters.");
-    passwordSelections.passwordUppercase = false;
-  }
-
-  // NUMERIC FUNCTION
-  // confirm if the player would like their password to include numeric values
-  var confirmNumeric = window.confirm("Would you like numbers in your password?");
-  // if yes (true), set to true
-  if (confirmNumeric) {
-    window.alert("your password will include numbers.");
-    passwordSelections.passwordNumeric = true;
-  }
-  // if cancel (false), set to false
-  else {
-    window.alert("your password will not include numbers.");
-    passwordSelections.passwordNumeric = false;
-  }
-
-  // SPECIAL CHARACTER FUNCTION
-  // confirm if the player would like their password to include special characters
-  var confirmSpecial = window.confirm("Would you like special characters in your password?");
-  // if yes (true), set to true
-  if (confirmSpecial) {
-    window.alert("your password will include special characters.");
-    passwordSelections.passwordSpecial = true;
-  }
-  // if cancel (false), set to false
-  else {
-    window.alert("your password will not include special characters.");
-    passwordSelections.passwordSpecial = false;
-  }
-
   // --------------------------VALIDATE THE RESPOSNSES-----------------------
   if (
     // ensure that at least one character type is selected
