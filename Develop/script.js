@@ -170,10 +170,8 @@ var generatePassword = function () {
   password.value = pass;
   password.length = passwordSelections.passwordLength;
   //console.log(pass);
-  window.alert("password value: " + password.value + ". Password length: " + password.length);
-  return pass;
-  
-}
+  console.log("password value: " + password.value + ". Password length: " + password.length);
+  }
 
 // ---------------------------------- OBJECTS AND VARIABLES -------------------------------------------------
 // passwordSelections is an object which will hold all of the answers to the prompts
